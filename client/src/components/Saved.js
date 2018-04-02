@@ -41,10 +41,13 @@ class Saved extends Component {
               <div className="panel-body" id="saved-section">
                 {this.props.save.map((item, index) => (
                   <div className="saved" id={index} key={item._id}>
-                    <HeadLine id={index} headline={item.headline}/>
+                    <HeadLine id={index + 1} headline={item.headline}/>
                     <ByLine byline={item.byline} />
-                    <a href={item.web_url}>{item.web_url}</a>
-                    <button onClick={() => this.handleDelete(item)} className="btn btn-primary" type="button">Delete</button>
+                    <a href={item.web_url} target="_blank">{item.web_url}</a>
+                    <div>
+                      <br/>
+                      <button onClick={() => this.handleDelete(item)} className="btn btn-primary" type="button">Delete</button>
+                    </div>
                   </div>
                 ))}
               </div>

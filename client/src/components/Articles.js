@@ -41,6 +41,12 @@ class Articles extends Component {
   };
 
   handleSavedArticle = article => {
+    function removeArticle (item) {
+      return item._id !== article._id;
+    }
+    const filtered = this.state.articles.filter(removeArticle);
+    this.setState({ articles: filtered });
+    
     const data = {
       headline: article.headline.main,
       byline: article.original,
@@ -128,7 +134,7 @@ class Articles extends Component {
                   onChange={this.handleInputChange}
                   />
                 </div>
-
+      
                 <button onClick={this.handleFormSearch} type="submit" className="btn btn-default" id="run-search">
                   <i className="fa fa-search"></i>
                    Search

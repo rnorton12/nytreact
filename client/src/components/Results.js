@@ -40,12 +40,15 @@ class Results extends Component {
             <div className="panel-body" id="well-section">
               {this.props.articles.map((item, index) => (
                 <div className="well" id={index} key={item._id}>
-                  <HeadLine id={index} headline={item.headline.main}/>
+                  <HeadLine id={index + 1} headline={item.headline.main}/>
                   <ByLine byline={item.byline} />
                   <h5>Section: {item.section_name}</h5>
                   <h5>{item.pub_date}</h5>
-                  <a href={item.web_url}>{item.web_url}</a>
-                  <button onClick={() => this.handleSave(item)} className="btn btn-primary" type="button">Save</button>
+                  <a href={item.web_url} target="_blank">{item.web_url}</a>
+                  <div>
+                    <br/>
+                    <button onClick={() => this.handleSave(item)} className="btn btn-primary" type="button">Save</button>
+                  </div>  
                 </div>
               ))}
             </div>
